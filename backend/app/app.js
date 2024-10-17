@@ -19,7 +19,7 @@ colors.enabled = true;
 if (process.env.NODE_ENV === 'development') {
    app.use(morgan('dev'));
 }
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+app.use(cors());
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(cookieParser());
