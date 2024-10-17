@@ -1,16 +1,15 @@
-
-
+import { Outlet } from 'react-router-dom';
+import './App.css'
+import NavbarComponent from './components/NavbarComponent.jsx';
 
 
 
 export default function App() {
    return (
       <>
-         <h1 className="text-3xl font-bold underline">Mern Lebaba Project</h1>
+         <NavbarComponent />
          <Outlet/>
       </>
 
    )
 }
-
-import {Outlet} from 'react-router-dom';
