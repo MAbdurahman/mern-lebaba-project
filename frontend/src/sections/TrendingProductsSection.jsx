@@ -20,7 +20,15 @@ export default function TrendingProductsSection() {
          </p>
          {/*ProductCardsComponents*/}
          <div className="mt-12">
-            <ProductCardsComponent products={products}/>
+            <ProductCardsComponent products={products.slice(0, visibleProducts)} />
+         </div>
+         {/* load more products button */}
+         <div className="product__btn">
+            {
+               visibleProducts < products.length && (
+                  <button className='btn font-semibold tracking-wider' onClick={loadMoreProducts}>Load More</button>
+               )
+            }
          </div>
       </section>
 

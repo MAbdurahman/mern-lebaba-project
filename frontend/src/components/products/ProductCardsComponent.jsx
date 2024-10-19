@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import RatingStarsComponent from './RatingStarsComponent.jsx';
 
 
 export default function ProductCardsComponent({products}) {
@@ -32,8 +33,8 @@ export default function ProductCardsComponent({products}) {
                {/* product description */}
                <div className='product__card__content'>
                   <h4>{product.name}</h4>
-                  <p>${product.price} {product?.oldPrice ? <s>${product?.oldPrice}</s> : null}</p>
-                  {/*<RatingStars rating={product.rating}/>*/}
+                  <p>{product?.oldPrice ? <s>${product?.oldPrice}</s> : null} ${product.price}</p>
+                  <RatingStarsComponent rating={product.rating} />
                </div>
 
             </div>
