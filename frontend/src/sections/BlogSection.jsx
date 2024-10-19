@@ -3,7 +3,7 @@ import blogData from '../data/blogs.json';
 
 
 export default function BlogSection() {
-   console.log(blogData);
+
    return (
       <section className='section__container blog__container'>
          <h2 className='section__header'>Latest From Blog</h2>
