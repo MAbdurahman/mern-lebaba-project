@@ -26,7 +26,7 @@ export default function TrendingProductsSection() {
          <div className="product__btn">
             {
                visibleProducts < products.length && (
-                  <button className='btn font-semibold tracking-wider' onClick={loadMoreProducts}>Load More</button>
+                  <button className='btn uppercase font-semibold tracking-wider' onClick={loadMoreProducts}>Load More</button>
                )
             }
          </div>

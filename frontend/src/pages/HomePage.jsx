@@ -3,6 +3,7 @@ import BannerComponent from '../components/home/BannerComponent.jsx';
 import CategorySection from '../sections/CategorySection.jsx';
 import HeroSection from '../sections/HeroSection.jsx';
 import TrendingProductsSection from '../sections/TrendingProductsSection.jsx';
+import DealsSection from '../sections/DealsSection.jsx';
 
 export default function HomePage() {
 
@@ -12,6 +13,7 @@ export default function HomePage() {
          <CategorySection />
          <HeroSection />
          <TrendingProductsSection />
+         <DealsSection />
       </>
 
    );
