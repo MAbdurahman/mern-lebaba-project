@@ -4,6 +4,7 @@ import CategorySection from '../sections/CategorySection.jsx';
 import HeroSection from '../sections/HeroSection.jsx';
 import TrendingProductsSection from '../sections/TrendingProductsSection.jsx';
 import DealsSection from '../sections/DealsSection.jsx';
+import PromotionBannerSection from '../sections/PromotionBannerSection.jsx';
 
 export default function HomePage() {
 
@@ -14,6 +15,7 @@ export default function HomePage() {
          <HeroSection />
          <TrendingProductsSection />
          <DealsSection />
+         <PromotionBannerSection />
       </>
 
    );

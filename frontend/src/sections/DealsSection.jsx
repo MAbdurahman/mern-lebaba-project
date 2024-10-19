@@ -12,9 +12,9 @@ export default function DealsSection() {
          </div>
 
          <div className='deals__content'>
-            <h5>Get Up To 20% Discount</h5>
+            <h5 className="font-semibold tracking-wider">Get Up To 20% Discount</h5>
             <h4>Deals Of This Month</h4>
-            <p>Our Women's Fashion Deals of the Month are here to make your style
+            <p className="font-semibold tracking-wider">Our Women's Fashion Deals of the Month are here to make your style
                dreams a reality without breaking the bank. Discover a curated
                collection of exquisite clothing, accessories, and footwear, all
                handpicked to elevate your wardrobe.</p>
