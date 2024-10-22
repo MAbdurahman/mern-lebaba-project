@@ -12,39 +12,39 @@ export default function FooterLayout() {
    return (
       <>
          <footer className='section__container footer__container'>
-            <div className='footer__col'>
+            <div className="footer__col">
                <h4>CONTACT INFO</h4>
-               <p>
+               <div>
                   <span><i className="ri-map-pin-2-fill"></i></span>
                   1234 Park Avenue,
                   <p className="text-black tracking-wider"> New York, New York</p>
-               </p>
+               </div>
                <p>
                   <span><i className="ri-mail-fill"></i></span>
                   support@lebaba.com
                </p>
                <p>
                   <span><i className="ri-phone-fill"></i></span>
-                  (+012) 3456 789
+                  (+012) 234-5678
                </p>
             </div>
 
-            <div className='footer__col'>
+            <div className="footer__col">
                <h4>COMPANY</h4>
                <a href="/">Home</a>
-               <a href="/">About Us</a>
+               <a href="/about">About Us</a>
                <a href="/">Careers With Us</a>
                <a href="/">Our Blogs</a>
-               <a href="/">Terms & Condition</a>
+               <a href="/terms-condition">Terms & Condition</a>
             </div>
 
             <div className='footer__col'>
                <h4>USEFUL LINK</h4>
-               <a href="/">Help</a>
-               <a href="/">Track your order</a>
-               <a href="/">Men</a>
-               <a href="/">Women</a>
-               <a href="/">Dresses</a>
+               <a href="/">Track Orders</a>
+               <a href="/categories/accessories">Accessories</a>
+               <a href="/categories/jewelry">Jewelry</a>
+               <a href="/categories/dresses">Dresses</a>
+               <a href="/categories/cosmetics">Cosmetics</a>
             </div>
             <div className='footer__col'>
                <h4>INSTAGRAM</h4>
