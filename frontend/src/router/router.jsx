@@ -4,6 +4,7 @@ import HomePage from '../pages/HomePage.jsx';
 import AboutPage from '../pages/AboutPage.jsx';
 import ContactPage from '../pages/ContactPage.jsx';
 import CategoryPage from '../pages/CategoryPage.jsx';
+import SearchSection from '../sections/SearchSection.jsx';
 
 
 const router = createBrowserRouter([
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
          {
             path: "/categories/:category",
             element: <CategoryPage />
+         },
+         {
+           path: "/search",
+           element: <SearchSection />
          },
          {
             path: "/contact",
