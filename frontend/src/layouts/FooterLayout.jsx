@@ -60,7 +60,7 @@ export default function FooterLayout() {
          </footer>
 
          <div className='footer__bar tracking-wider bg-neutral-100'>
-            Copyright © 2024 by Lebaba. All rights reserved.
+            © 2024 by Lebaba. All rights reserved.
          </div>
       </>
 
