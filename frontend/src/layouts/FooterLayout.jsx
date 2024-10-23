@@ -42,8 +42,8 @@ export default function FooterLayout() {
                <h4>USEFUL LINK</h4>
                <a href="/">Track Orders</a>
                <a href="/categories/accessories">Accessories</a>
+               <a href="/categories/clothing">Clothing</a>
                <a href="/categories/jewelry">Jewelry</a>
-               <a href="/categories/dresses">Dresses</a>
                <a href="/categories/cosmetics">Cosmetics</a>
             </div>
             <div className='footer__col'>
@@ -60,7 +60,7 @@ export default function FooterLayout() {
          </footer>
 
          <div className='footer__bar tracking-wider bg-neutral-100'>
-            © 2024 by Lebaba. All rights reserved.
+            © 2024 by Lebaba,inc. All rights reserved.
          </div>
       </>
 

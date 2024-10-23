@@ -10,7 +10,7 @@ export default function CategorySection() {
 
    const categories = [
       {name: 'Accessories', path: 'accessories', image: categoryImage1},
-      {name: 'Dress Collection', path: 'dress', image: categoryImage2},
+      {name: 'Clothing', path: 'clothing', image: categoryImage2},
       {name: 'Jewelry', path: 'jewelry', image: categoryImage3},
       {name: 'Cosmetics', path: 'cosmetics', image: categoryImage4}
    ]

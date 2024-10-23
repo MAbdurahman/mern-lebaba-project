@@ -18,6 +18,10 @@ export default {
         'text-dark': '#0f172a',
         'text-light': '#64748b',
         'extra-light': '#f8fafc'
+      },
+      fontFamily: {
+        'header':['Playfair Display', 'serif'],
+        'body':['Poppins', 'sans-serif']
       }
     },
   },

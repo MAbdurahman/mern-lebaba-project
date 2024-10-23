@@ -14,7 +14,7 @@
     {
       "_id": 2,
       "name": "Evening Gown",
-      "category": "dress",
+      "category": "clothing",
       "description": "Elegant evening gown for special occasions.",
       "price": 149.99,
       "oldPrice": 199.99,
@@ -25,7 +25,7 @@
     {
       "_id": 3,
       "name": "Gold Necklace",
-      "category": "jewellery",
+      "category": "jewelry",
       "description": "Exquisite gold necklace with intricate design.",
       "price": 199.99,
       "image": "https://images.unsplash.com/photo-1631097969294-c38afba59496?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -50,13 +50,13 @@
       "price": 29.99,
       "oldPrice": 39.99,
       "image": "https://images.unsplash.com/photo-1485527691629-8e370684924c?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "color": "blue",
+      "color": "rust",
       "rating": 4.3
     },
     {
       "_id": 6,
       "name": "Cocktail Dress",
-      "category": "dress",
+      "category": "clothing",
       "description": "Chic cocktail dress for parties and events.",
       "price": 89.99,
       "image": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -66,7 +66,7 @@
     {
       "_id": 7,
       "name": "Diamond Earrings",
-      "category": "jewellery",
+      "category": "jewelry",
       "description": "Sparkling diamond earrings that add elegance to any outfit.",
       "price": 299.99,
       "oldPrice": 349.99,
@@ -97,7 +97,7 @@
     {
       "_id": 10,
       "name": "Casual Pants",
-      "category": "dress",
+      "category": "clothing",
       "description": "Comfortable maxi dress for casual outings.",
       "price": 59.99,
       "oldPrice": 79.99,
