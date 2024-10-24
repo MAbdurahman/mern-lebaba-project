@@ -7,7 +7,7 @@ export default function ShopFilteringComponent({filters,filtersState ,setFilters
          <h3 className="font-header text-xl font-semibold tracking-wider mb-4">Shopping Filters</h3>
          {/* categories */}
          <div className='flex flex-col space-y-2'>
-            <h4 className='font-medium text-lg'>Category</h4>
+            <h4 className='font-semibold  text-lg'>Category</h4>
             <hr/>
             {
                filters.categories.map((category) => (
@@ -23,7 +23,7 @@ export default function ShopFilteringComponent({filters,filtersState ,setFilters
          </div>
          {/* colors */}
          <div className='flex flex-col space-y-2'>
-            <h4 className='font-medium text-lg'>Color</h4>
+            <h4 className='font-semibold text-lg'>Color</h4>
             <hr/>
             {
                filters.colors.map((color) => (
@@ -39,23 +39,23 @@ export default function ShopFilteringComponent({filters,filtersState ,setFilters
          </div>
          {/* price ranges */}
          <div className='flex flex-col space-y-2'>
-            <h4 className='font-medium text-lg'>Price Range</h4>
+            <h4 className='font-semibold text-lg'>Price Range</h4>
             <hr/>
             {
-               filters.priceRanges.map((range) => (
-                  <label key={range.label} className='capitalize cursor-pointer'>
+               filters.priceRanges.map((priceRange) => (
+                  <label key={priceRange.label} className='capitalize cursor-pointer'>
                      <input type="radio" name="priceRange" id="priceRange"
-                            value={`${range.min}-${range.max}`}
-                            checked={filtersState.priceRange === `${range.min}-${range.max}`}
+                            value={`${priceRange.min}-${priceRange.max}`}
+                            checked={filtersState.priceRange === `${priceRange.min}-${priceRange.max}`}
                             onChange={(e) => setFiltersState({...filtersState, priceRange: e.target.value})}
                      />
-                     <span className='ml-1'>{range.label}</span>
+                     <span className='ml-1'>{priceRange.label}</span>
                   </label>
                ))
             }
          </div>
          {/* clear filters */}
-         <button onClick={clearFilters}  className='bg-primary py-1 px-4 text-white rounded'>Clear Filters
+         <button onClick={clearFilters}  className='btn uppercase font-semibold tracking-wider py-1 px-4 text-white rounded'>Clear Filters
          </button>
       </div>
    );
