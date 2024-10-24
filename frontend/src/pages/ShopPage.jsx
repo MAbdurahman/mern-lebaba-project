@@ -2,10 +2,11 @@ import React, {useEffect, useState} from 'react';
 
 import productsData from '../data/products.json';
 import ProductCardsComponent from '../components/products/ProductCardsComponent.jsx';
+import ShopFilteringComponent from '../components/products/ShopFilteringComponent.jsx';
 
 
 const filters = {
-   categories: ['all', 'accessories', 'dresses', 'jewelry', 'cosmetics'],
+   categories: ['all', 'accessories', 'clothing', 'jewelry', 'cosmetics'],
    colors: ['all', 'beige', 'black', 'brown', 'blue', 'green', 'gold', 'red', 'grey', 'silver'],
    priceRanges: [
       {label: 'Under $50', min: 0, max: 50},
@@ -25,41 +26,42 @@ export default function ShopPage() {
    });
 
 
-   const clearFilters = () => {
-      setFiltersState({
-         category: 'all', color: 'all', priceRange: ''
-      })
-   }
+
 
    const applyShoppingFilters = () => {
 
       let filteredProducts = productsData;
 
 
-      if (filtersState.category && filteredProducts.category !== 'all') {
+      if (filtersState.category && filtersState.category !== 'all') {
          filteredProducts = filteredProducts.filter(product => product.category === filtersState.category);
-
       }
+
       if (filtersState.color && filtersState.color !== 'all') {
          filteredProducts = filteredProducts.filter(product => product.color === filtersState.color);
       }
 
-      if (filtersState.priceRange && filtersState.priceRange !== 'all') {
+      if (filtersState.priceRange) {
          const [minPrice, maxPrice] = filtersState.priceRange.split('-').map(Number);
          filteredProducts = filteredProducts.filter(product => product.price >= minPrice && product.price <= maxPrice);
+
       }
+
       setProducts(filteredProducts);
-      console.log(products)
 
    }
 
-
+   const clearFilters = () => {
+      setFiltersState({
+         category: 'all', color: 'all', priceRange: ''
+      })
+   }
 
    useEffect(() => {
       applyShoppingFilters();
 
-
    }, [filtersState]);
+
 
    return (
       <>
@@ -72,15 +74,16 @@ export default function ShopPage() {
          <section className="section__container">
             <div className="flex flex-col md:flex-row md:gap-12 gap-8">
                {/* left side */}
-               <h3 className="font-header text-xl font-medium mb-4">
-                  Shopping Filters
-               </h3>
-
-
+               <ShopFilteringComponent
+                  filters={filters}
+                  filtersState={filtersState}
+                  setFiltersState={setFiltersState}
+                  clearFilters={clearFilters}
+               />
                {/* right side */}
                <div>
-                  <h3 className="font-header text-xl font-medium mb-4">
-                     Available Products
+                  <h3 className="font-header text-xl font-semibold tracking-wider mb-4">
+                     {products.length} Available Products
                   </h3>
                   <ProductCardsComponent products={products}/>
 
@@ -88,6 +91,5 @@ export default function ShopPage() {
             </div>
          </section>
       </>
-
    );
 }
