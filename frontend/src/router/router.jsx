@@ -5,6 +5,8 @@ import AboutPage from '../pages/AboutPage.jsx';
 import ContactPage from '../pages/ContactPage.jsx';
 import CategoryPage from '../pages/CategoryPage.jsx';
 import SearchSection from '../sections/SearchSection.jsx';
+import ShopPage from '../pages/ShopPage.jsx';
+
 
 
 const router = createBrowserRouter([
@@ -19,6 +21,10 @@ const router = createBrowserRouter([
          {
             path: "/about",
             element: <AboutPage />
+         },
+         {
+           path: "/shop",
+           element: <ShopPage />
          },
          {
             path: "/categories/:category",

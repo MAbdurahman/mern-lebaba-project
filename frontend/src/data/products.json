@@ -45,7 +45,7 @@
     {
       "_id": 5,
       "name": "Silk Scarf",
-      "category": "accessories",
+      "category": "clothing",
       "description": "Luxurious silk scarf with vibrant colors.",
       "price": 29.99,
       "oldPrice": 39.99,
@@ -91,7 +91,7 @@
       "description": "Trendy sunglasses with UV protection.",
       "price": 49.99,
       "image": "https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "color": "black",
+      "color": "grey or greyish",
       "rating": 4.6
     },
     {
@@ -102,7 +102,7 @@
       "price": 59.99,
       "oldPrice": 79.99,
       "image": "https://plus.unsplash.com/premium_photo-1664298355914-bc65d2c9af64?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "color": "green",
+      "color": "blue",
       "rating": 3
     }
   ]

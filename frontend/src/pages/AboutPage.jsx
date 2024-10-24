@@ -1,3 +1,6 @@
+import React from 'react';
+import aboutImage from '../assets/about-us.jpg';
+
 export default function AboutPage() {
 
    return (
@@ -8,14 +11,7 @@ export default function AboutPage() {
                   <h2
                      className="font-header text-3xl font-extrabold text-gray-900 sm:text-4xl">About
                      Us</h2>
-                  <p className="font-body tracking-wider mt-4 text-gray-600 text-lg">Lorem ipsum dolor sit
-                     amet, consectetur adipiscing elit. Sed quis
-                     eros at lacus feugiat hendrerit sed ut tortor. Suspendisse et
-                     magna quis elit efficitur consequat.
-                     Mauris eleifend velit a pretium iaculis. Donec sagittis velit et
-                     magna euismod, vel aliquet nulla
-                     malesuada. Nunc pharetra massa lectus, a fermentum arcu volutpat
-                     vel.</p>
+                  <p className="font-body tracking-wider mt-4 text-gray-600 text-lg">At Lebaba, our passion goes beyond just offering a curated selection of stylish clothing and accessories. We are dedicated to creating a community where women can express their unique identities. Our thoughtfully chosen collections feature timeless pieces, trendy finds, and exclusive lines that reflect the diversity of women everywhere. From chic everyday wear to stunning outfits for special occasions, we have something for every chapter of your life.</p>
                   <div className="mt-8">
                      <a href="/shop"
                         className="font-body tracking-wider about__info text-primary-dark hover:text-primary font-medium">Learn
@@ -25,9 +21,9 @@ export default function AboutPage() {
                </div>
                <div className="mt-12 md:mt-0">
                   <img
-                     src="https://images.unsplash.com/photo-1531973576160-7125cd663d86"
+                     src={aboutImage}
                      alt="About Us Image"
-                     className="object-cover rounded-lg shadow-md"/>
+                     className="object-cover rounded-sm shadow-md"/>
                </div>
             </div>
          </div>

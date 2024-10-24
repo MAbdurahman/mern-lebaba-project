@@ -20,12 +20,13 @@ export default function FooterLayout() {
                   <p className="text-black tracking-wider"> New York, New York</p>
                </div>
                <p>
-                  <span><i className="ri-mail-fill"></i></span>
-                  support@lebaba.com
+                  <a href="mailto:support@lebaba.com"
+                     target="_blank" className=""><span><i className="ri-mail-fill"></i></span>support@lebaba.com</a>
                </p>
                <p>
-                  <span><i className="ri-phone-fill"></i></span>
-                  (+012) 234-5678
+
+
+                  <a href="tel: 901-828-4631"><span><i className="ri-phone-fill"></i></span>(+212) 234-5678</a>
                </p>
             </div>
 
@@ -60,7 +61,7 @@ export default function FooterLayout() {
          </footer>
 
          <div className='footer__bar tracking-wider bg-neutral-100'>
-            © 2024 by Lebaba,inc. All rights reserved.
+            © 2024 by Lebaba,Inc. All rights reserved.
          </div>
       </>
 

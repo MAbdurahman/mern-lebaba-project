@@ -5,7 +5,6 @@ import RatingStarsComponent from './RatingStarsComponent.jsx';
 
 export default function ProductCardsComponent({products}) {
 
-
    const handleAddToCart = (product) => {
       console.log('handleAddToCart...', product);
    }
