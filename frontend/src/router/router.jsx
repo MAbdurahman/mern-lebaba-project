@@ -6,6 +6,8 @@ import ContactPage from '../pages/ContactPage.jsx';
 import CategoryPage from '../pages/CategoryPage.jsx';
 import SearchSection from '../sections/SearchSection.jsx';
 import ShopPage from '../pages/ShopPage.jsx';
+import SingleProductComponent
+   from '../components/products/SingleProductComponent.jsx';
 
 
 
@@ -25,6 +27,10 @@ const router = createBrowserRouter([
          {
            path: "/shop",
            element: <ShopPage />
+         },
+         {
+            path: "/shop/:productId",
+            element: <SingleProductComponent />
          },
          {
             path: "/categories/:category",
