@@ -1,6 +1,6 @@
 # mern-lebaba-project
 
-`this repository is a MERN project`
+`this repository is a MERN E-Commerce Project`
 
 #### Create config.env file in config directory
 ```bash
