@@ -1,12 +1,19 @@
 import React from 'react';
+import {Outlet} from 'react-router-dom';
+import './App.css';
+import NavbarComponent from '../components/NavbarComponent';
+import Footer from './../layouts/Footer';
+
 
 
 export default function App() {
 
   return (
-     <div>
-       <h2 className='text-3xl font-bold underline'>Lebaba E-Commerce</h2>
-     </div>
+    <>
+      <NavbarComponent />
+      <Outlet />
+       <Footer />
+    </>
 
   );
 }
