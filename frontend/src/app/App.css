@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Poppins:wght@400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 :root {
    --primary-color: #ed3849;
@@ -25,6 +26,9 @@
    margin: auto;
    padding: 5rem 1rem;
 }
+input {
+   font-family: "Poppins", sans-serif;
+}
 
 .section__header {
    margin-bottom: 1rem;
@@ -42,7 +46,8 @@
    text-align: center;
 }
 
-.btn {
+.btn,
+.search-button {
    padding: 0.75rem 1.5rem;
    outline: none;
    border: none;
@@ -54,7 +59,8 @@
    transition: 0.3s;
 }
 
-.btn:hover {
+.btn:hover,
+.search-button:hover {
    background-color: var(--primary-color-dark);
 }
 
@@ -67,6 +73,9 @@ a {
    text-decoration: none;
 }
 
+s {
+   text-decoration: line-through;
+}
 body {
    font-family: "Poppins", sans-serif;
 }
@@ -91,6 +100,16 @@ nav {
 .link a {
    font-weight: 500;
    color: var(--text-dark);
+}
+
+.about__info {
+   font-family: "Poppins", sans-serif;
+   font-weight: 600;
+   color: var(--primary-color);
+}
+
+.about__info:hover {
+   color: var(--primary-color-dark);
 }
 
 .link a:hover {
@@ -435,7 +454,7 @@ nav {
 }
 
 .footer__container {
-   max-width: var(--max-width-1200);
+   /*max-width: var(--max-width-1200);*/
    display: grid;
    grid-template-columns: repeat(4, 1fr);
    gap: 2rem;
@@ -455,7 +474,8 @@ nav {
    color: var(--text-light);
 }
 
-.footer__col p span {
+.footer__col p span,
+.footer__col div span {
    margin-right: 0.5rem;
    font-size: 1.2rem;
    color: var(--primary-color);
