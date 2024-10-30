@@ -6,6 +6,7 @@ import {useNotification} from '../hooks/notificationHook.jsx';
 import {validateUserInfo} from '../utils/functionUtils.js';
 
 
+
 export default function SignUpPage() {
    const [message, setMessage] = useState('');
    const [username, setUsername] = useState('');

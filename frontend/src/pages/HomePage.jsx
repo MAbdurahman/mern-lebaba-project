@@ -1,11 +1,11 @@
 import React from 'react';
-import BannerComponent from './../components/home/BannerComponent';
-import CategorySection from './../sections/CategorySection';
-import HeroSection from './../sections/HeroSection';
-import TrendingProductsSection from './../sections/TrendingProductsSection';
-import DealsSection from './../sections/DealsSection';
-import PromotionBannerSection from './../sections/PromotionBannerSection';
-import BlogSection from '../sections/BlogSection';
+import BannerComponent from '../components/home/BannerComponent.jsx';
+import CategorySection from '../sections/CategorySection.jsx';
+import HeroSection from '../sections/HeroSection.jsx';
+import TrendingProductsSection from '../sections/TrendingProductsSection.jsx';
+import DealsSection from '../sections/DealsSection.jsx';
+import PromotionBannerSection from '../sections/PromotionBannerSection.jsx';
+import BlogSection from '../sections/BlogSection.jsx';
 
 export default function HomePage() {
 

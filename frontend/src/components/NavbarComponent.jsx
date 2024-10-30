@@ -1,11 +1,11 @@
 import React, { useState} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
-/*import{useDispatch, useSelector} from 'react-redux';*/
-/*import ShoppingCartModal from './shop/ShoppingCartModal.jsx';*/
+import{useDispatch, useSelector} from 'react-redux';
+import ShoppingCartModal from './shop/ShoppingCartModal.jsx';
 
 
 export default function NavbarComponent() {
-   /*const products = useSelector((state) => state.cart.products);*/
+   const products = useSelector((state) => state.cart.products);
    const [isCartOpen, setIsCartOpen] = useState(false);
 
 
@@ -38,7 +38,7 @@ export default function NavbarComponent() {
                   <button onClick={handleCartToggle} className='hover:text-primary'>
                      <i className="ri-shopping-bag-line"></i>
                      <sup className='text-sm inline-block px-1.5 text-white rounded-full  bg-primary text-center'>
-                               {'2'}
+                               {products.length}
                      </sup>
                   </button>
                </span>
@@ -50,7 +50,7 @@ export default function NavbarComponent() {
 
             </div>
          </nav>
-         {/*{isCartOpen && <ShoppingCartModal products={products} isOpen={isCartOpen} onClose={handleCartToggle} />}*/}
+         {isCartOpen && <ShoppingCartModal products={products} isOpen={isCartOpen} onClose={handleCartToggle} />}
       </header>
 
    );

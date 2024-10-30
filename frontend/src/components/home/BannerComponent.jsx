@@ -14,7 +14,7 @@ export default function BannerComponent() {
             <button className='btn font-semibold tracking-wider'><Link to='/shop'>EXPLORE NOW</Link></button>
          </div>
          <div className='header__image'>
-            <img src={bannerImage} alt="banner"/>
+            <img src={bannerImage} alt="banner image"/>
          </div>
       </div>
 

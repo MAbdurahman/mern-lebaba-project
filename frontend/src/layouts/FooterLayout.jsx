@@ -21,9 +21,11 @@ export default function FooterLayout() {
                </div>
                <p>
                   <a href="mailto:support@lebaba.com"
-                     target="_blank" rel="noreferrer"><span><i className="ri-mail-fill"></i></span>support@lebaba.com</a>
+                     target="_blank" className=""><span><i className="ri-mail-fill"></i></span>support@lebaba.com</a>
                </p>
                <p>
+
+
                   <a href="tel: 901-828-4631"><span><i className="ri-phone-fill"></i></span>(+212) 234-5678</a>
                </p>
             </div>
@@ -48,12 +50,12 @@ export default function FooterLayout() {
             <div className='footer__col'>
                <h4>INSTAGRAM</h4>
                <div className='instagram__grid'>
-                  <img src={instagramImage1} alt="instagram post" />
-                  <img src={instagramImage2} alt="instagram post" />
-                  <img src={instagramImage3} alt="instagram post" />
-                  <img src={instagramImage4} alt="instagram post" />
-                  <img src={instagramImage5} alt="instagram post" />
-                  <img src={instagramImage6} alt="instagram post" />
+                  <img src={instagramImage1} alt="instagram image" />
+                  <img src={instagramImage2} alt="instagram image" />
+                  <img src={instagramImage3} alt="instagram image" />
+                  <img src={instagramImage4} alt="instagram image" />
+                  <img src={instagramImage5} alt="instagram image" />
+                  <img src={instagramImage6} alt="instagram image" />
                </div>
             </div>
          </footer>

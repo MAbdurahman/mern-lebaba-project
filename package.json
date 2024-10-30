@@ -1,7 +1,7 @@
 {
   "name": "mern-lebaba-project",
   "version": "1.0.0",
-  "description": "MERN E-Commerce Project",
+  "description": "MERN e-commerce project",
   "main": "backend/server.js",
   "type": "module",
   "repository": "https://github.com/MAbdurahman/mern-lebaba-project.git",

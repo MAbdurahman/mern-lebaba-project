@@ -24,13 +24,13 @@ export default function SignInPage() {
       try {
 
          if (email === '' && password === '') {
-            return updateNotification('error', 'Enter email and password!');
+           return updateNotification('error', 'Enter email and password!');
          }
          if (email === '' && password !== '') {
             return updateNotification('error', 'Enter valid email!');
          }
          if (email !== '' && password === '') {
-            return updateNotification('error', 'Enter valid password!');
+           return updateNotification('error', 'Enter valid password!');
          }
 
          const response = await signInUser(data).unwrap();
@@ -41,7 +41,7 @@ export default function SignInPage() {
          }, 5000);
 
       } catch(err) {
-         updateNotification('error', 'Invalid email or password!');
+        updateNotification('error', 'Invalid email or password!');
       }
    }
 
