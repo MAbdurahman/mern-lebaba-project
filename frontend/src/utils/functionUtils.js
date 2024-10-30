@@ -55,7 +55,7 @@ export function validateUserInfo(username, email, password) {
       return {isValid: false, error: 'Enter a valid email!'};
    }
    if (password_trimmed.length === 0) {
-      return {isValid: false, error: 'Enter a password!'};
+      return {isValid: false, error: 'A password is required!'};
    }
    return {isValid: true};
 }
