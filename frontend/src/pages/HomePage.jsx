@@ -1,11 +1,14 @@
 import React from 'react';
+import BannerComponent from './../components/home/BannerComponent';
+import CategorySection from './../sections/CategorySection';
 
 export default function HomePage() {
 
    return (
-      <div>
-         <h2 className='text-3xl font-bold underline'>Lebaba E-Commerce</h2>
-      </div>
+      <>
+         <BannerComponent />
+         <CategorySection />
+      </>
 
    );
 }
