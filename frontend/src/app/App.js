@@ -2,7 +2,7 @@ import React from 'react';
 import {Outlet} from 'react-router-dom';
 import './App.css';
 import NavbarComponent from '../components/NavbarComponent';
-import Footer from './../layouts/Footer';
+import FooterLayout from '../layouts/FooterLayout';
 
 
 
@@ -12,7 +12,7 @@ export default function App() {
     <>
       <NavbarComponent />
       <Outlet />
-       <Footer />
+       <FooterLayout />
     </>
 
   );
