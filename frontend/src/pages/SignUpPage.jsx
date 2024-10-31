@@ -53,7 +53,7 @@ export default function SignUpPage() {
                       placeholder='Full name'
                       className='w-full bg-gray-100 focus:outline-none px-5 py-3'
                />
-               <input type="email" name="email" id="email"
+               <input type="text" name="email" id="email"
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder='Email'
                       className='w-full bg-gray-100 focus:outline-none px-5 py-3'

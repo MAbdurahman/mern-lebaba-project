@@ -1,10 +1,10 @@
 import React, { useState} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import{useDispatch, useSelector} from 'react-redux';
-import ShoppingCartModal from './shop/ShoppingCartModal.jsx';
+import ShoppingCartModal from '../components/shop/ShoppingCartModal.jsx';
 
 
-export default function NavbarComponent() {
+export default function NavbarLayout() {
    const products = useSelector((state) => state.cart.products);
    const [isCartOpen, setIsCartOpen] = useState(false);
 
@@ -54,4 +54,4 @@ export default function NavbarComponent() {
       </header>
 
    );
-}//end of NavbarComponent Function
+}//end of NavbarLayout Function
