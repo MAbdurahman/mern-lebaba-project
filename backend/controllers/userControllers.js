@@ -17,6 +17,9 @@ export const signUpUser = async (req, res) => {
       if (!password) {
          return messageHandler(res, 'Password is required!', false, 400);
       }
+      if (password.length < 8) {
+         return messageHandler(res, 'Password must be at least 8 characters!', false, 406);
+      }
       if (!validateName(username)) {
          return messageHandler(res, 'Enter your first and last name!', false, 406);
       }
