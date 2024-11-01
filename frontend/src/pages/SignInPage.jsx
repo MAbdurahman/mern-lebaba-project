@@ -3,6 +3,8 @@ import {Link, useNavigate} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import {useSignInUserMutation} from '../redux/features/users/userAPI.js';
 import {useNotification} from '../hooks/notificationHook.jsx';
+import {setUser} from '../redux/features/users/userSlice.js';
+import {validateEmailPassword} from '../utils/functionUtils.js';
 
 export default function SignInPage() {
    const [email, setEmail] = useState('');
@@ -22,18 +24,17 @@ export default function SignInPage() {
       }
 
       try {
-
-         if (email === '' && password === '') {
-           return updateNotification('error', 'Enter email and password!');
-         }
-         if (email === '' && password !== '') {
-            return updateNotification('error', 'Enter valid email!');
-         }
-         if (email !== '' && password === '') {
-           return updateNotification('error', 'Enter valid password!');
+         const {isValid, error} = await validateEmailPassword(email, password);
+         if (!isValid) {
+            return updateNotification('error', error);
          }
 
          const response = await signInUser(data).unwrap();
+
+         console.log(response);
+         const {token, user} = response;
+         console.log(user)
+         dispatch(setUser({user}));
 
          updateNotification('success', 'Signed in successfully!');
          setTimeout(()=> {
