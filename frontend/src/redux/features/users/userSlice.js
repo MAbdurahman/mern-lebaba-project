@@ -3,10 +3,11 @@ import {createSlice} from '@reduxjs/toolkit';
 const loadUserFromLocalStorage = () => {
    try {
       const serializedState = JSON.parse(localStorage.getItem('user'));
+
       if (serializedState == null) {
          return {user: null};
       }
-      return {user: JSON.parse(serializedState)};
+      return {user: serializedState};
 
    } catch(err) {
       return {user: null};
@@ -17,7 +18,7 @@ const loadUserFromLocalStorage = () => {
 const initialState = loadUserFromLocalStorage();
 
 const userSlice = createSlice({
-   name: "users",
+   name: 'users',
    initialState,
    reducers: {
       setUser : (state, action) => {
