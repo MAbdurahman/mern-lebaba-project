@@ -8,6 +8,7 @@ const userAPI = createApi({
       baseUrl: `${getBaseURL()}/api/v1.0/users`,
       credentials: 'include',
    }),
+   tagTypes: ["User"],
    endpoints: (builder) => ({
       signUpUser: builder.mutation({
          query: (newUser) => ({
