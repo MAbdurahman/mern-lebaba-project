@@ -15,9 +15,10 @@ export default function FooterLayout() {
             <div className="footer__col">
                <h4>CONTACT INFO</h4>
                <div>
+                  <a href="https://www.google.com/maps/place/1234+Park+Ave,+New+York,+NY+10128/@40.7864709,-73.9555135,16z/data=!3m1!4b1!4m6!3m5!1s0x89c258a6b777b2bb:0xccc4bafb3a956499!8m2!3d40.7864669!4d-73.9529386!16s%2Fg%2F11cs8m3msb?entry=ttu&g_ep=EgoyMDI0MTAyOS4wIKXMDSoASAFQAw%3D%3D" target="_blank">
                   <span><i className="ri-map-pin-2-fill"></i></span>
                   1234 Park Avenue,
-                  <p className="text-black tracking-wider"> New York, New York</p>
+                  <div className="text-black tracking-wider">New York, New York</div></a>
                </div>
                <p>
                   <a href="mailto:support@lebaba.com"

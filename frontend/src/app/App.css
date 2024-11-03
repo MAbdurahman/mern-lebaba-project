@@ -491,6 +491,12 @@ nav {
 .footer__col a:hover {
   color: var(--primary-color);
 }
+.footer__col div {
+  color: var(--text-light);
+}
+.footer__col div:hover {
+  color: var(--primary-color);
+}
 
 .instagram__grid {
   display: grid;
