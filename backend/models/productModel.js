@@ -12,6 +12,10 @@ const productSchema = new Schema({
          message: 'Please select the correct category for the product!'
       }
    },
+   subCategory: {
+     type: String,
+     trim: true,
+   },
    description: { type: String, required: true },
    price: { type: Number, required: true },
    oldPrice: { type: Number },
