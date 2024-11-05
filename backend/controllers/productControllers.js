@@ -31,12 +31,24 @@ export const createProduct = async (req, res) => {
 }//end of createProduct Function
 
 export const updateProduct = async (req, res) => {
-   console.log('Updating product...');
+   try {
+      const productId = req.params.id;
+      const updatedProduct = await Product.findByIdAndUpdate(productId, {...req.body}, {new: true});
 
-   res.status(200).send({
-      success: true,
-      message: 'Product updated successfully.'
-   })
+      if (!updatedProduct) {
+         return messageHandler(res, 'Product not found!', false, 404);
+      }
+
+      res.status(200).send({
+         success: true,
+         message: 'Product succussfully updated!',
+         product: updatedProduct
+      });
+
+   } catch(err) {
+      console.error("Error updating product: ", err.message);
+      return messageHandler(res, 'Error updating product', false, 500);
+   }
 }//end of updateProduct Function
 
 export const deleteProduct = async (req, res) => {
