@@ -49,12 +49,22 @@ export const deleteProduct = async (req, res) => {
 }//end of deleteProduct Function
 
 export const getSingleProduct = async (req, res) => {
-   console.log('Getting single product...');
+  try {
+      const productId = req.params.id;
+      const singleProduct = await Product.findById(productId).populate("author", "email username");
+      if (!singleProduct) {
+         return messageHandler(res, 'Product not found!', false, 404);
+      }
 
-   res.status(200).send({
-      success: true,
-      message: 'Product getting single product.',
-   })
+      const reviews = await Review.find({productId}).populate("userId", "username email username");
+
+      res.status(200).send({success: true, message: 'Product successfully found!', product: singleProduct,
+         reviews: reviews});
+
+  } catch(err) {
+   console.error("Error fetching single product", err);
+   return messageHandler(res, 'Error fetching single product', false, 500);
+  }
 }//end of getSingleProduct Function
 
 export const getAllProducts = async (req, res) => {
@@ -66,6 +76,7 @@ export const getAllProducts = async (req, res) => {
          maxPrice,
          page = 1,
          limit = 10,
+         subCategory
       } = req.query;
 
       const filter = {};
