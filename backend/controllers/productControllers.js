@@ -52,12 +52,25 @@ export const updateProduct = async (req, res) => {
 }//end of updateProduct Function
 
 export const deleteProduct = async (req, res) => {
-   console.log('Deleting product...');
+   try {
+      const productId = req.params.id;
+      const deletedProduct = await Product.findByIdAndDelete(productId);
+      if (!deletedProduct) {
+         return messageHandler(res, 'Product not found!', false, 404);
+      }
 
-   res.status(200).send({
-      success: true,
-      message: 'Product deleted successfully.',
-   })
+      await Review.deleteMany({productId: productId});
+
+      res.status(200).send({
+         success: true,
+         message: 'Product succesfully deleted!'
+      })
+
+   } catch(err) {
+      console.error('Error deleting product!', err.message);
+      return messageHandler(res, 'Error deleting product!', false, 500);
+   }
+
 }//end of deleteProduct Function
 
 export const getSingleProduct = async (req, res) => {
