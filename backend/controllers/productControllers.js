@@ -144,3 +144,44 @@ export const getAllProducts = async (req, res) => {
       messageHandler(res, 'Error getting all products.', false, 500);
    }
 }//end of getAllProducts Function
+
+export const getRelatedProducts = async (req, res) => {
+   try {
+      const { id } = req.params;
+      if (!id) {
+         return messageHandler(res, 'Product ID is required!', false, 400);
+      }
+
+      const product = await Product.findById(id);
+      if (!product) {
+         return messageHandler(res, 'Product not found!', false, 404);
+      }
+
+      const titleRegex = new RegExp(
+         product.name
+            .split(" ")
+            .filter((word) => word.length > 1)
+            .join("|"),
+         "i"
+      );
+
+      const relatedProducts = await Product.find({
+         _id: { $ne: id }, // Exclude the current product
+         $or: [
+            { name: { $regex: titleRegex } }, // Match similar names
+            { category: product.category }, // Match the same category
+            { subCategory: product.subCategory} //Match the same subCategory
+         ],
+      });
+
+      res.status(200).send({
+         success: true,
+         message: 'Succesfully fetching related products!',
+         products: relatedProducts
+      })
+
+   } catch(err) {
+      console.error('Error fetching related products!', err.message);
+      return messageHandler(res, 'Error fetching related products!', false, 500);
+   }
+}//end of getRelatedProducts Function
