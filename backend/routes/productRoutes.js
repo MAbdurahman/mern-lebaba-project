@@ -11,6 +11,6 @@ router.get('/', getAllProducts);
 router.get('/:id', getSingleProduct);
 router.get('/related-products/:id', getRelatedProducts);
 router.delete('/:id', verifyToken, verifyAdmin, deleteProduct);
-router.patch('/update-product/:id', verifyToken, updateProduct);
+router.patch('/update-product/:id', verifyToken, verifyAdmin, updateProduct);
 
 export default router;
