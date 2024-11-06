@@ -1,6 +1,5 @@
 import User from '../models/userModel.js';
 import bcrypt from 'bcrypt';
-import generateToken from '../middlewares/generateTokenMiddleware.js';
 import {messageHandler} from '../utils/messageHandlerUtils.js';
 import {validateName} from '../utils/functionUtils.js';
 import {generateTokenAndSetCookie} from '../utils/generateTokenAndSetCookieUtils.js';

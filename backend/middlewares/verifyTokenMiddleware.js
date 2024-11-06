@@ -1,22 +1,24 @@
 import jwt from 'jsonwebtoken';
 import {messageHandler} from '../utils/messageHandlerUtils.js';
+import User from '../models/userModel.js';
 
-const JWT_SECRET = process.env.JWT_SECRET_KEY;
 
-export const verifyToken = (req, res, next) => {
+export const verifyToken = async (req, res, next) => {
    try {
-      const token = req.cookies.token;
-      // const token = req.headers["authorization"].split(" ")[1]
+      const {token}= req.cookies;
       if(!token) {
-         return messageHandler(res, 'Unauthorized - Invalid Token!', false, 401);
+         return messageHandler(res, 'Unauthorized - Sign in to access this resource!', false, 401);
       }
 
-      const decoded = jwt.verify(token, JWT_SECRET);
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
       if(!decoded){
          return messageHandler(res, 'Unauthorized - Invalid Token!', false, 401);
       }
-      req.userId = decoded.userId;
-      req.role = decoded.role;
+
+      req.user = await User.findOne({_id: decoded.userId});
+      req.userId = req.user._id;
+      req.role = req.user.role;
+
       next();
 
    } catch (err) {
