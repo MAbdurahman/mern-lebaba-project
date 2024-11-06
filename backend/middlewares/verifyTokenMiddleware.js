@@ -12,7 +12,7 @@ export const verifyToken = async (req, res, next) => {
 
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
       if(!decoded){
-         return messageHandler(res, 'Unauthorized - Invalid Token!', false, 401);
+         return messageHandler(res, 'Unauthorized - Invalid Token!', false, 403);
       }
 
       req.user = await User.findOne({_id: decoded.userId});
