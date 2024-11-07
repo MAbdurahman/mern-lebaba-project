@@ -13,7 +13,6 @@ const productAPI = createApi({
       getAllProducts: builder.query({
          query: ({
                     category,
-                    subCategory,
                     color,
                     minPrice,
                     maxPrice,
@@ -22,7 +21,6 @@ const productAPI = createApi({
                  }) => {
             const queryParams = new URLSearchParams({
                category: category || "",
-               subCategory: subCategory || "",
                color: color || "",
                minPrice: minPrice || 0,
                maxPrice: maxPrice || "",
@@ -71,7 +69,7 @@ const productAPI = createApi({
    })
 });
 
-export const {getAllProducts, getSingleProduct, createProduct, getRelatedProducts,
-updateProduct, deleteProduct} = productAPI;
+export const {useGetAllProductsQuery, useGetSingleProductQuery, useCreateProductQuery, useGetRelatedProductsQuery,
+useUpdateProductQuery, useDeleteProductQuery} = productAPI;
 
 export default productAPI;

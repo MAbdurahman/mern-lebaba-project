@@ -25,6 +25,7 @@ export const createProduct = async (req, res) => {
 
 
    } catch(err) {
+      console.log('error creating product', err.message);
       messageHandler(res, 'Error creating product', false, 500);
 
    }

@@ -6,7 +6,7 @@ import {verifyAdmin} from './../middlewares/verifyAdminMiddleware.js';
 
 const router = express.Router();
 
-router.post('/create-product', verifyToken, verifyAdmin, createProduct);
+router.post('/create-product',verifyToken, verifyAdmin, createProduct);
 router.get('/', getAllProducts);
 router.get('/:id', getSingleProduct);
 router.get('/related-products/:id', getRelatedProducts);

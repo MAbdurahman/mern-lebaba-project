@@ -17,7 +17,7 @@ export default function SearchSection() {
       const query = searchQuery.toLowerCase();
       const filteredProducts = productsData.filter(product => product.name.toLowerCase().includes(query)
          || product.description.toLowerCase().includes(query) || product.category.toLowerCase().includes(query)
-         || product.color.toLowerCase().includes(query));
+         || product.subCategory.toLowerCase().includes(query) || product.color.toLowerCase().includes(query));
 
       setFilteredProducts(filteredProducts);
    }
