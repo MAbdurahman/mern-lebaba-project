@@ -34,7 +34,7 @@ const productAPI = createApi({
       }),
       getSingleProduct: builder.query({
          query: (id) => `/${id}`,
-         providesTags: (result, error, id) => [{ type: 'Product', id }],
+         providesTags: (result, error, id) => [{ type: 'Products', id }],
       }),
       createProduct: builder.mutation({
          query: (newProduct) => ({

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
-import productsData from '../data/products.json';
+/*import productsData from '../data/products.json';*/
 import ProductCardsComponent from '../components/products/ProductCardsComponent.jsx';
 import ShopFilteringComponent from '../components/products/ShopFilteringComponent.jsx';
 
@@ -20,7 +20,7 @@ const filters = {
 
 
 export default function ShopPage() {
-   /*const [products, setProducts] = useState(productsData);*/
+
 
 
    const [filtersState, setFiltersState] = useState({
@@ -46,28 +46,28 @@ export default function ShopPage() {
 
 
 
-   const applyShoppingFilters = () => {
-
-      let filteredProducts = productsData;
-
-
-      if (filtersState.category && filtersState.category !== 'all') {
-         filteredProducts = filteredProducts.filter(product => product.category === filtersState.category);
-      }
-
-      if (filtersState.color && filtersState.color !== 'all') {
-         filteredProducts = filteredProducts.filter(product => product.color === filtersState.color);
-      }
-
-      if (filtersState.priceRange) {
-         const [minPrice, maxPrice] = filtersState.priceRange.split('-').map(Number);
-         filteredProducts = filteredProducts.filter(product => product.price >= minPrice && product.price <= maxPrice);
-
-      }
-
-/*      setProducts(filteredProducts);*/
-
-   }
+   // const applyShoppingFilters = () => {
+   //
+   //    let filteredProducts = productsData;
+   //
+   //
+   //    if (filtersState.category && filtersState.category !== 'all') {
+   //       filteredProducts = filteredProducts.filter(product => product.category === filtersState.category);
+   //    }
+   //
+   //    if (filtersState.color && filtersState.color !== 'all') {
+   //       filteredProducts = filteredProducts.filter(product => product.color === filtersState.color);
+   //    }
+   //
+   //    if (filtersState.priceRange) {
+   //       const [minPrice, maxPrice] = filtersState.priceRange.split('-').map(Number);
+   //       filteredProducts = filteredProducts.filter(product => product.price >= minPrice && product.price <= maxPrice);
+   //
+   //    }
+   //
+   //    setProducts(filteredProducts);
+   //
+   // }
 
    const clearFilters = () => {
       setFiltersState({
@@ -81,10 +81,10 @@ export default function ShopPage() {
       }
    }
 
-   useEffect(() => {
+   /*useEffect(() => {
       applyShoppingFilters();
 
-   }, [filtersState]);
+   }, [filtersState]);*/
 
 
    if (isLoading) {

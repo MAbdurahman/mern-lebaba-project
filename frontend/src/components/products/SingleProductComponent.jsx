@@ -3,16 +3,29 @@ import { Link, useParams } from 'react-router-dom';
 import RatingStarsComponent from './RatingStarsComponent.jsx';
 import {useDispatch} from 'react-redux';
 import {addToCart} from '../../redux/features/cart/cartSlice.js';
-
+import {useGetSingleProductQuery} from '../../redux/features/products/productAPI.js';
 
 
 export default function SingleProductComponent() {
-   const {productId} = useParams();
+   const {id} = useParams();
    const dispatch = useDispatch();
+
+   const {data, error, isLoading} = useGetSingleProductQuery(id);
+
+   console.log(data)
+
    const productImage = "https://images.unsplash.com/photo-1568251188392-ae32f898cb3b?q=80&w=2062&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
    const handleAddToCart = (product) => {
       dispatch(addToCart(product))
+   }
+
+   if(isLoading) {
+      return <p>Loading...</p>
+   }
+
+   if(error) {
+      return <p>Error loading product details.</p>
    }
 
    return (

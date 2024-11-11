@@ -76,13 +76,15 @@ export const deleteProduct = async (req, res) => {
 
 export const getSingleProduct = async (req, res) => {
   try {
-      const productId = req.params.id;
-      const singleProduct = await Product.findById(productId).populate("author", "email username");
+      const {id} = req.params;
+
+      const singleProduct = await Product.findById(id).populate("author", "email username");
+
       if (!singleProduct) {
          return messageHandler(res, 'Product not found!', false, 404);
       }
 
-      const reviews = await Review.find({productId}).populate("userId", "username email username");
+      const reviews = await Review.find({id}).populate("userId", "username email username");
 
       res.status(200).send({success: true, message: 'Product successfully found!', product: singleProduct,
          reviews: reviews});
