@@ -5,25 +5,19 @@ import {useDispatch} from 'react-redux';
 import {addToCart} from '../../redux/features/cart/cartSlice.js';
 import {useGetSingleProductQuery} from '../../redux/features/products/productAPI.js';
 
-
 export default function SingleProductComponent() {
    /*const params = useParams();*/
    /*const {id} = useParams();*/
    /*const productId = params.productId;*/
 
    const {productId} = useParams();
-
-   /*console.log('ID is : ', productId);*/
    const dispatch = useDispatch();
 
    const {data, error, isLoading} = useGetSingleProductQuery(productId);
 
+   const singleProduct = data?.product || {};
+   const productReviews = data?.reviews || [];
 
-   console.log('data', {productId});
-
-
-
-   const productImage = "https://images.unsplash.com/photo-1568251188392-ae32f898cb3b?q=80&w=2062&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
    const handleAddToCart = (product) => {
       dispatch(addToCart(product))
@@ -48,36 +42,37 @@ export default function SingleProductComponent() {
                <span className='hover:text-primary'><Link className='capitalize'
                                                           to="/shop">shop</Link></span>
                <i className="ri-arrow-right-s-line"></i>
-               <span className='hover:text-primary'>{'Evening Gown'}</span>
+               <span className='hover:text-primary'>{singleProduct.name}</span>
             </div>
          </section>
          <section className='section__container mt-8'>
             <div className='flex flex-col items-center md:flex-row gap-8'>
                {/* product image */}
                <div className='md:w-1/2 w-full'>
-                  <img src={productImage} alt="product image"
+                  <img src={singleProduct?.image} alt="product image"
                        className='rounded-md w-full h-auto'
                   />
                </div>
 
 
-               <div className='md:w-1/2 w-full'>
-                  <h3 className='text-2xl font-semibold mb-4'>{'Evening Gown'}</h3>
-                  <p className='text-xl text-black mb-4 space-x-1'>
-                     {
-                        <s className='ml-1'>${'199.99'}</s>}
-                     ${'149.99'}
-
+               <div className="md:w-1/2 w-full">
+                  <h3
+                     className="text-2xl font-semibold mb-4">{singleProduct?.name}</h3>
+                  <p className="text-xl text-black font-semibold mb-4 space-x-1">
+                     {singleProduct?.oldPrice &&
+                        <s className="ml-1 text-primary">${singleProduct?.oldPrice}</s>}
+                        &nbsp;
+                     ${singleProduct?.price}
                   </p>
-                  <p className='text-gray-900 tracking-wider mb-4'>{'Elegant black evening gown/dress for special occasions. Embrace the allure of sophistication with this exquisite black mesh dress, designed to captivate and enchant. The delicate interplay of sheer fabric and intricate detailing creates a stunning silhouette, perfectly accentuating the figure while exuding an air of mystery.'}</p>
+                  <p className="text-gray-900 tracking-wider mb-4">{singleProduct?.description}</p>
 
                   {/* additional product info */}
-                  <div className='flex flex-col space-y-2'>
-                     <p><strong>Category:</strong> {'clothing'}</p>
-                     <p><strong>Color:</strong> {'black'}</p>
-                     <div className='flex gap-1 items-center'>
+                  <div className="flex flex-col space-y-2">
+                     <p className="capitalize"><strong>Category:</strong> {singleProduct?.category}</p>
+                     <p className="capitalize"><strong>Color:</strong> {singleProduct?.color}</p>
+                     <div className="flex gap-1 items-center">
                         <strong>Rating: </strong>
-                        <RatingStarsComponent rating={5}/>
+                        <RatingStarsComponent rating={singleProduct?.rating}/>
                      </div>
 
                   </div>
@@ -85,9 +80,9 @@ export default function SingleProductComponent() {
                   <button
                      onClick={(e) => {
                         e.stopPropagation();
-                        handleAddToCart()
+                        handleAddToCart(singleProduct)
                      }}
-                     className='btn mt-6 px-6 py-3 uppercase font-semibold rounded-md'>
+                     className="btn mt-6 px-6 py-3 uppercase font-semibold rounded-md">
                      Add to Cart
                   </button>
                </div>
