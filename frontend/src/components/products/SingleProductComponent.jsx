@@ -19,7 +19,7 @@ export default function SingleProductComponent() {
    const {data, error, isLoading} = useGetSingleProductQuery(productId);
 
 
-   console.log('data', data)
+   console.log('data', {productId});
 
 
 

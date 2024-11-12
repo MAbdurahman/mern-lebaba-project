@@ -20,9 +20,6 @@ const filters = {
 
 
 export default function ShopPage() {
-
-
-
    const [filtersState, setFiltersState] = useState({
       category: 'all',
       color: 'all',
@@ -88,12 +85,11 @@ export default function ShopPage() {
 
 
    if (isLoading) {
-      return <div>Loading....</div>
+      return <div>Loading...</div>
    }
    if (error) {
       return <div>Error loading products.</div>
    }
-
 
    const startProduct = (currentPage - 1) * ProductsPerPage + 1;
    const endProduct = startProduct + products.length - 1;
