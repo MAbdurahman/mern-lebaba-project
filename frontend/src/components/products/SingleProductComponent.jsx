@@ -7,12 +7,21 @@ import {useGetSingleProductQuery} from '../../redux/features/products/productAPI
 
 
 export default function SingleProductComponent() {
-   const {id} = useParams();
+   /*const params = useParams();*/
+   /*const {id} = useParams();*/
+   /*const productId = params.productId;*/
+
+   const {productId} = useParams();
+
+   /*console.log('ID is : ', productId);*/
    const dispatch = useDispatch();
 
-   const {data, error, isLoading} = useGetSingleProductQuery(id);
+   const {data, error, isLoading} = useGetSingleProductQuery(productId);
 
-   console.log(data)
+
+   console.log('data', data)
+
+
 
    const productImage = "https://images.unsplash.com/photo-1568251188392-ae32f898cb3b?q=80&w=2062&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
