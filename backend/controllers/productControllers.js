@@ -55,6 +55,7 @@ export const updateProduct = async (req, res) => {
 export const deleteProduct = async (req, res) => {
    try {
       const productId = req.params.id;
+
       const deletedProduct = await Product.findByIdAndDelete(productId);
       if (!deletedProduct) {
          return messageHandler(res, 'Product not found!', false, 404);
@@ -79,8 +80,6 @@ export const getSingleProduct = async (req, res) => {
 
      const productId = req.params.id;
 
-     console.log('ID is:', productId);
-
       const singleProduct = await Product.findById(productId).populate("author", "email username");
 
       if (!singleProduct) {
@@ -93,7 +92,7 @@ export const getSingleProduct = async (req, res) => {
          reviews: reviews});
 
   } catch(err) {
-   console.error("Error fetching single product", err);
+   console.error("Error fetching single product", err.message);
    return messageHandler(res, 'Error fetching single product', false, 500);
   }
 }//end of getSingleProduct Function
@@ -146,7 +145,7 @@ export const getAllProducts = async (req, res) => {
       });
 
    } catch(err) {
-      console.log('error getting all products...', err.message);
+      console.log('Error getting all products...', err.message);
       messageHandler(res, 'Error getting all products.', false, 500);
    }
 }//end of getAllProducts Function

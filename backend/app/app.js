@@ -32,12 +32,14 @@ if (process.env.NODE_ENV === 'development') {
 import homeRoute from '../routes/homeRoute.js';
 import userRoutes from '../routes/userRoutes.js';
 import productRoutes from '../routes/productRoutes.js';
+import reviewRoutes from '../routes/reviewRoutes.js';
 
 
 /****************************** routes ******************************/
 app.use('/api/v1.0/', homeRoute);
 app.use('/api/v1.0/users', userRoutes);
 app.use('/api/v1.0/products', productRoutes);
+app.use('/api/v1.0/reviews', reviewRoutes);
 
 
 export default app;
