@@ -71,11 +71,21 @@ export const postReview = async (req, res) => {
 }//end of createReview Function
 
 export const getAllReviews = async (req, res) => {
+   try {
+      const totalReviews = await Review.find({});
+      const reviewsCount =  await Review.countDocuments({});
 
-   res.status(200).send({
-      success: true,
-      message: 'All reviews retrieved successfully.'
-   })
+      res.status(200).send({
+         success: true,
+         message: 'All reviews retrieved successfully.',
+         totalReviews,
+         reviewsCount
+      });
+
+   } catch(err) {
+      console.log('Error creating review: ', err.message);
+      return messageHandler(res, `Error creating review: ${err.message}`, false, 500);
+   }
 
 }//end of getAllReviews Function
 
