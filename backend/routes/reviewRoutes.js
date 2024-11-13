@@ -1,9 +1,9 @@
 import express from 'express';
-import {createReview, getAllReviews, getUserReviews} from '../controllers/reviewControllers.js';
+import {postReview, getAllReviews, getUserReviews} from '../controllers/reviewControllers.js';
 
 const router = express.Router();
 
-router.post('/create-review', createReview);
+router.post('/post-review', postReview);
 router.get('/all-reviews', getAllReviews);
 router.get('/:userId', getUserReviews);
 
