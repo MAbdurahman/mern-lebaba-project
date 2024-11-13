@@ -83,18 +83,34 @@ export const getAllReviews = async (req, res) => {
       });
 
    } catch(err) {
-      console.log('Error creating review: ', err.message);
-      return messageHandler(res, `Error creating review: ${err.message}`, false, 500);
+      console.log('Error retrieving all reviews: ', err.message);
+      return messageHandler(res, `Error retrieving all reviews: ${err.message}`, false, 500);
    }
 
 }//end of getAllReviews Function
 
 
 export const getUserReviews = async (req, res) => {
+   const {userId} = req.params;
+   if (!userId) {
+      return messageHandler(res, 'User identification is required!', 400);
+   }
+   try {
+      const reviews = await Review.find({ userId: userId }).sort({ createdAt: -1 });
 
-   res.status(200).send({
-      success: true,
-      message: 'User reviews retrieved successfully.'
-   })
+      if(reviews.length === 0) {
+         return messageHandler(res, 'No user reviews found!', false, 404);
+      }
+
+      res.status(200).send({
+         success: true,
+         message: 'User reviews retrieved successfully.',
+         reviews: reviews
+      })
+
+   } catch(err) {
+      console.log('Error creating review: ', err.message);
+      return messageHandler(res, `Error creating review: ${err.message}`, false, 500);
+   }
 
 }//end of getUserReviews Function
