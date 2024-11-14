@@ -131,7 +131,7 @@ export const updateUserProfile = async (req, res) => {
       const user = await User.findById(userId);
 
       if (!user) {
-         return res.status(400).send({ message: "User not found" });
+         return messageHandler(res, 'User not found!', false, 404);
       }
 
       /************************* update user profile *************************/

@@ -4,6 +4,7 @@ import RatingStarsComponent from './RatingStarsComponent.jsx';
 import {useDispatch} from 'react-redux';
 import {addToCart} from '../../redux/features/cart/cartSlice.js';
 import {useGetSingleProductQuery} from '../../redux/features/products/productAPI.js';
+import ReviewCardComponent from '../reviews/ReviewCardComponent.jsx';
 
 export default function SingleProductComponent() {
    /*const params = useParams();*/
@@ -90,7 +91,7 @@ export default function SingleProductComponent() {
          </section>
          {/* display Reviews */}
          <section className='section__container mt-8'>
-            ReviewCardComponent goes here!
+            <ReviewCardComponent productReviews={productReviews} />
          </section>
       </>
 

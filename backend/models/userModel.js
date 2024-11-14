@@ -8,7 +8,10 @@ const userSchema =  new Schema({
    role: {
       type: String, default: 'user'
    },
-   profileImage: String,
+   profileImage: {
+      type: String,
+      default: 'https://res.cloudinary.com/mdbdrrhm/image/upload/v1635086610/people/default-user_dmmlom.png'
+   },
    bio: {type: String, maxlength: 200},
    profession: String,
    createdAt: {

@@ -1,4 +1,4 @@
-export default function ReviewPostComponent() {
+export default function ReviewPostComponent({isModalOpen, handleClose}) {
 
    return (
       <div>

@@ -83,3 +83,13 @@ export function validateUserInfo(username, email, password) {
    }
    return {isValid: true};
 }
+
+export function formatDate(ISODate) {
+   const date = new Date(ISODate);
+   /*return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;*/
+   return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+   });
+}
