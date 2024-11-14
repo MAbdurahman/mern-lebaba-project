@@ -10,9 +10,6 @@ export default function ReviewCardComponent({productReviews}) {
 
    const reviews = productReviews || [];
 
-
-   console.log(reviews);
-
    const handleOpenReviewModal = () => {
       setIsModalOpen(true);
    }

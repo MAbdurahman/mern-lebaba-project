@@ -17,7 +17,7 @@ const reviewAPI = createApi({
             method: 'POST',
             body: reviewData
          }),
-         invalidatesTags: (result, error, {reviewId}) => [{type: "Reviews", id: reviewId}]
+         invalidatesTags: (result, error, {reviewId}) => [{type: "Review", id: reviewId}]
       }),
       getAllReviews: builder.query({
          query: () => ({
