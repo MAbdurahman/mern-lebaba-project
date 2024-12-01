@@ -22,6 +22,7 @@ export default function ReviewPostComponent({isModalOpen, handleClose}) {
       setRating(value);
    }
 
+
    const handleSubmit = async (e) => {
       e.preventDefault();
       const newComment = {
@@ -31,10 +32,8 @@ export default function ReviewPostComponent({isModalOpen, handleClose}) {
          productId: productId
       }
 
-      console.log(newComment)
       try {
          const response =  await postReview(newComment).unwrap();
-         console.log(response);
          updateNotification('success', 'Comment posted successfully!');
          setComment('');
          setRating(0);

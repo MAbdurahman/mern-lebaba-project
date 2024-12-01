@@ -17,7 +17,7 @@ export default function ReviewCardComponent({productReviews}) {
    const handleCloseReviewModal = () => {
       setIsModalOpen(false);
    }
-
+   console.log(reviews)
    return (
       <div className='my-6  bg-white p-8'>
          {
