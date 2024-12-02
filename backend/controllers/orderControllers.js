@@ -1,14 +1,38 @@
 import Order from './../models/orderModel.js';
 import verifyTokenMiddleware from '../middlewares/verifyTokenMiddleware.js';
 import verifyAdminMiddleware from '../middlewares/verifyAdminMiddleware.js';
-
-
+import {messageHandler} from '../utils/messageHandlerUtils.js';
 
 export const creatCheckoutSession = async (req, res) => {
+   const {products} = req.body;
 
-   res.status(201).send({
-      message: 'Checkout session created!'
-   })
+   try {
+      const lineItems = products.map((product) => ({
+         price_data: {
+            currency: "usd",
+            product_data: {
+               name: product.name,
+               images: [product.image],
+            },
+            unit_amount: Math.round(product.price * 100),
+         },
+         quantity: product.quantity,
+      }));
+
+      const session = await stripe.checkout.sessions.create({
+         payment_method_types: ["card"],
+         line_items: lineItems,
+         mode: "payment",
+         success_url:
+            `http://localhost:5173/success?session_id={CHECKOUT_SESSION_ID}`,
+         cancel_url: `http://localhost:5173/cancel`,
+      });
+      res.json({ id: session.id });
+   } catch(err) {
+      console.log('error creating checkout session', err.message);
+      messageHandler(res, 'Error creating checkout session', false, 500);
+   }
+
 }//end of createCheckoutSession Function
 
 export const confirmPayment = async (req, res) => {
