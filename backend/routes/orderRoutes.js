@@ -1,5 +1,5 @@
 import express from 'express';
-import {creatCheckoutSession, confirmPayment, deleteOrder,
+import {createCheckoutSession, confirmPayment, deleteOrder,
 getAllOrders, getOrdersByEmail, getOrdersById, updateOrder} from '../controllers/orderControllers.js';
 import {verifyToken} from './../middlewares/verifyTokenMiddleware.js';
 import {verifyAdmin} from './../middlewares/verifyAdminMiddleware.js';

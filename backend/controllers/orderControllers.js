@@ -3,7 +3,7 @@ import verifyTokenMiddleware from '../middlewares/verifyTokenMiddleware.js';
 import verifyAdminMiddleware from '../middlewares/verifyAdminMiddleware.js';
 import {messageHandler} from '../utils/messageHandlerUtils.js';
 
-export const creatCheckoutSession = async (req, res) => {
+export const createCheckoutSession = async (req, res) => {
    const {products} = req.body;
 
    try {
