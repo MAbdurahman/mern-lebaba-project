@@ -7,7 +7,7 @@ import {verifyAdmin} from './../middlewares/verifyAdminMiddleware.js';
 
 const router = express.Router();
 
-router.post('/create-checkout-session', creatCheckoutSession);
+router.post('/create-checkout-session', createCheckoutSession);
 router.post('/confirm-payment', confirmPayment);
 router.get('/', getAllOrders);
 router.get('/:email', getOrdersByEmail);
