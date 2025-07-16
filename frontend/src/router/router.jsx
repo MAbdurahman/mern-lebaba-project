@@ -11,6 +11,8 @@ import SingleProductComponent
    from '../components/products/SingleProductComponent.jsx';
 import SignInPage from '../pages/SignInPage.jsx';
 import SignUpPage from '../pages/SignUpPage.jsx';
+import PaymentSuccessComponent
+   from '../components/payments/PaymentSuccessComponent.jsx';
 
 
 
@@ -34,6 +36,10 @@ const router = createBrowserRouter([
          {
             path: "/shop/:productId",
             element: <SingleProductComponent />
+         },
+         {
+            path: "/success",
+            element: <PaymentSuccessComponent />
          },
          {
             path: "/categories/:category",

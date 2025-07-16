@@ -2,9 +2,10 @@ import Order from './../models/orderModel.js';
 import verifyTokenMiddleware from '../middlewares/verifyTokenMiddleware.js';
 import verifyAdminMiddleware from '../middlewares/verifyAdminMiddleware.js';
 import {messageHandler} from '../utils/messageHandlerUtils.js';
-import Stripe from 'stripe';
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+import {Stripe} from 'stripe';
 
+console.log(process.env.STRIPE_SECRET_KEY)
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export const createCheckoutSession = async (req, res) => {
    const {products} = req.body;
@@ -30,9 +31,16 @@ export const createCheckoutSession = async (req, res) => {
             `http://localhost:5173/success?session_id={CHECKOUT_SESSION_ID}`,
          cancel_url: `http://localhost:5173/cancel`,
       });
-      res.json({ id: session.id });
+
+      console.log('session created', session);
+      res.json({
+         id: session.id,
+         line_items: lineItems
+      });
+
    } catch(err) {
       console.log('error creating checkout session', err.message);
+      console.log(err.stackTrace);
       messageHandler(res, 'Error creating checkout session', false, 500);
    }
 
@@ -73,13 +81,14 @@ export const confirmPayment = async (req, res) => {
 
       await order.save();
 
-      res.status(200).send({
+      res.json({
          message: 'Payment was successfully confirmed!',
-         order,
+         order
 
       });
    } catch(err) {
       console.log('error confirming payment', err.message);
+      console.log(err.stackTrace);
       messageHandler(res, 'Error confirming payment!', false, 500);
    }
 

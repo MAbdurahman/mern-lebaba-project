@@ -42,5 +42,4 @@ app.use('/api/v1.0/products', productRoutes);
 app.use('/api/v1.0/reviews', reviewRoutes);
 app.use('/api/v1.0/orders', orderRoutes);
 
-
 export default app;

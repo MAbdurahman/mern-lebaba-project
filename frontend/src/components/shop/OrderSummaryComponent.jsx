@@ -1,19 +1,48 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { loadStripe } from "@stripe/stripe-js";
 import {clearCart} from '../../redux/features/cart/cartSlice.js';
+import {getBaseURL} from '../../utils/baseURLUtils.js';
 
 
 export default function OrderSummaryComponent() {
    const products = useSelector((store) => store.cart.products);
    const { selectedItems, totalPrice, tax, taxRate, grandTotal } = useSelector((store) => store.cart);
    const dispatch = useDispatch();
+   const {user} = useSelector(state => state.users);
 
    const handleClearCart = () => {
       dispatch(clearCart());
    }
 
-   const handleMakePayment = () => {
-      console.log('make payment');
+   const handleMakePayment = async (e) => {
+      const stripe =  await loadStripe(import.meta.env.VITE_STRIPE_PK);
+      const body = {
+         products: products,
+         userId: user?._id
+      }
+
+      const headers = {
+         "Content-Type": "application/json"
+      }
+
+      const response = await fetch(`${getBaseURL()}/api/v1.0/orders/create-checkout-session`, {
+         method: "POST",
+         headers: headers,
+         body: JSON.stringify(body)
+      })
+
+
+      const session =  await response.json()
+      console.log("session: ", session);
+
+      const result =  stripe.redirectToCheckout({
+         sessionId: session.id
+      })
+      console.log("Result:",  result)
+      if(result.error) {
+         console.log("Error:", result.error)
+      }
    }
 
    return (
