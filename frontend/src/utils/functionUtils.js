@@ -23,7 +23,7 @@ export function validateName(username) {
    const name_pattern = /^([a-zA-Z]{2,}\s[a-zA-z]{1,}'?-?[a-zA-Z]{1,}\s?([a-zA-Z]{1,})?)(,? (?:[JS]r\.?|II|III|IV))?$/g;
 
    if (name_trimmed.length === 0) {
-      return {isValid: false, error: 'Your first and last name is required!'};
+      return {isValid: false, error: 'Your first and last name are required!'};
 
    }
    if (!name_trimmed.match(name_pattern)) {
