@@ -1,9 +1,29 @@
-import React from 'react';
+import React, {useState, useEffect}  from 'react';
 import dealsImage from '../assets/deals.png';
 
+const COUNTDOWN_TARGET = new Date('2025-10-11T00:00:01');
 
+const getTimeLeft = () => {
+   const totalTimeLeft = COUNTDOWN_TARGET - new Date();
+   const days = Math.floor(totalTimeLeft / (1000 * 60 * 60 * 24));
+   const hrs = Math.floor((totalTimeLeft / (1000 * 60 * 60)) % 24);
+   const mins = Math.floor((totalTimeLeft / (1000 * 60)) % 60);
+   const secs = Math.floor((totalTimeLeft / 1000) % 60);
+   return [ days, hrs, mins, secs ];
+};
 
 export default function DealsSection() {
+   const [timeLeft, setTimeLeft] = useState(() => getTimeLeft());
+
+   useEffect(() => {
+      const timer = setInterval(() => {
+         setTimeLeft(getTimeLeft());
+      }, 1000);
+
+      return () => {
+         clearInterval(timer);
+      };
+   }, []);
 
    return (
       <section className='section__container deals__container'>
@@ -20,19 +40,19 @@ export default function DealsSection() {
                handpicked to elevate your wardrobe.</p>
             <div className='deals__countdown flex-wrap'>
                <div className='deals__countdown__card'>
-                  <h4>14</h4>
+                  <h4>{timeLeft[0]}</h4>
                   <p>Days</p>
                </div>
                <div className='deals__countdown__card'>
-                  <h4>20</h4>
-                  <p>Hours</p>
+                  <h4>{timeLeft[1]}</h4>
+                  <p>Hrs</p>
                </div>
                <div className='deals__countdown__card'>
-                  <h4>15</h4>
+                  <h4>{timeLeft[2]}</h4>
                   <p>Mins</p>
                </div>
                <div className='deals__countdown__card'>
-                  <h4>05</h4>
+                  <h4>{timeLeft[3]}</h4>
                   <p>Secs</p>
                </div>
             </div>
