@@ -9,6 +9,9 @@ import instagramImage6 from '../assets/instagram-6.jpg';
 
 export default function FooterLayout() {
 
+   let date = new Date();
+	let year = date.getFullYear();
+
    return (
       <>
          <footer className='section__container footer__container'>
@@ -63,7 +66,7 @@ export default function FooterLayout() {
          </footer>
 
          <div className='footer__bar tracking-wider bg-neutral-100'>
-            © 2024 by Lebaba,Inc. All rights reserved.
+            © {year} by Lebaba,Inc. All rights reserved.
          </div>
       </>
 

@@ -1,7 +1,7 @@
 import React, {useState, useEffect}  from 'react';
 import dealsImage from '../assets/deals.png';
 
-const COUNTDOWN_TARGET = new Date('2025-10-11T00:00:01');
+const COUNTDOWN_TARGET = new Date('2025-11-11T00:00:01');
 
 const getTimeLeft = () => {
    const totalTimeLeft = COUNTDOWN_TARGET - new Date();
